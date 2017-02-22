@@ -9,14 +9,14 @@ func check_search_smoke(t *testing.T, myList []int, step, x, diff int) {
 	res := search(myList, step, x, 5)
 
 	for i, v := range res {
-		if abs_dif(v, x) > diff {
+		if abcDiff(v, x) > diff {
 			t.Errorf("Test_huge... error. x: %d,\nres: %#v,\ni: %d, x: %d,\ndiff: %d", x, res, i, x, diff)
 		}
 	}
 }
 
 func Test_search_neg(t *testing.T) {
-	// // t.Skip("no now")
+	// t.Skip("no now")
 
 	x := -1
 	diff := 1
@@ -52,7 +52,7 @@ func Test_search_smoke(t *testing.T) {
 }
 
 func Test_search_negative(t *testing.T) {
-	// // t.Skip("no now")
+	// t.Skip("no now")
 
 	x := -10
 	diff := 1
@@ -78,7 +78,7 @@ func Test_search_negative(t *testing.T) {
 
 func Test_search_long(t *testing.T) {
 
-	// // t.Skip("no now")
+	// t.Skip("no now")
 
 	x := 100
 	diff := 1
@@ -98,7 +98,7 @@ func Test_search_long(t *testing.T) {
 
 func Test_FindHuge_long(t *testing.T) {
 
-	// // t.Skip("no now")
+	// t.Skip("no now")
 
 	x := 100
 	diff := 1
@@ -115,7 +115,7 @@ func Test_FindHuge_long(t *testing.T) {
 
 	res := FindHuge(myList, x, 5)
 	for i, v := range res {
-		if abs_dif(v, x) > diff {
+		if abcDiff(v, x) > diff {
 			t.Errorf("Test_huge_smoke error. x: %d,\nres: %#v,\ni: %d, x: %d,\ndiff: %d", x, res, i, x, diff)
 		}
 	}

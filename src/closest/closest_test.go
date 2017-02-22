@@ -11,7 +11,7 @@ func check_point(t *testing.T, str string, list []int, val1, val2 int) {
 	}
 }
 
-func Test_abs_dif(t *testing.T) {
+func Test_abcDiff(t *testing.T) {
 
 	// t.Skip("no now")
 
@@ -23,8 +23,8 @@ func Test_abs_dif(t *testing.T) {
 	}
 
 	for _, v := range test_data {
-		if abs_dif(v[0], v[1]) != v[2] {
-			t.Errorf("abs_dif error: %#v", v)
+		if abcDiff(v[0], v[1]) != v[2] {
+			t.Errorf("abcDiff error: %#v", v)
 		}
 	}
 
@@ -140,7 +140,7 @@ func check_Find(t *testing.T, myList []int, x, diff int) {
 	fmt.Printf("find: %#v\n", find)
 
 	for i, v := range find {
-		if abs_dif(v, x) > diff {
+		if abcDiff(v, x) > diff {
 			t.Errorf("check_Find error. x: %d,\nmyList: %#v,\nfind: %#v,\ni: %d, x: %d", x, myList, find, i, x)
 		}
 	}

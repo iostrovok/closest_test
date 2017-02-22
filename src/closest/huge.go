@@ -13,7 +13,7 @@ func FindHuge(list []int, x int, counts ...int) []int {
 
 	count := len(list)
 
-	countReturn, err := check_counts(counts...)
+	countReturn, err := checkCounts(counts...)
 	if err != nil {
 		// TODO make errors processing
 		return []int{}
@@ -28,17 +28,17 @@ func FindHuge(list []int, x int, counts ...int) []int {
 		return Find(list, x, countReturn)
 	}
 
-	step := count / get_count_goroutine()
+	step := count / getCountGoroutine()
 
 	return search(list, step, x, countReturn)
 }
 
-func get_count_goroutine() int {
+func getCountGoroutine() int {
 	// TODO need to change: it depends on processor cores and memory
 	return CountGoroutine
 }
 
-func check_counts(counts ...int) (int, error) {
+func checkCounts(counts ...int) (int, error) {
 	// How many number we have to return
 	count := CountByDefault
 	if len(counts) > 0 {
@@ -80,8 +80,8 @@ func search(list []int, step, x, countReturn int) []int {
 	// Sort and find top of values which are the closest to x
 	stack := newStack(x, countReturn)
 	stack.result = result_list
-	stack.sort()
-	return stack.get_result()
+	stack.Sort()
+	return stack.getResult()
 }
 
 //

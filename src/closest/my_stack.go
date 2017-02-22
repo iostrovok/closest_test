@@ -16,13 +16,13 @@ type myStack struct {
 func (this myStack) Len() int      { return len(this.result) }
 func (this myStack) Swap(i, j int) { this.result[i], this.result[j] = this.result[j], this.result[i] }
 func (this myStack) Less(i, j int) bool {
-	return abs_dif(this.x, this.result[i]) < abs_dif(this.x, this.result[j])
+	return abcDiff(this.x, this.result[i]) < abcDiff(this.x, this.result[j])
 }
 
-func (this *myStack) sort() {
+func (this *myStack) Sort() {
 	sort.Sort(this)
 }
-func (this *myStack) get_result() []int {
+func (this *myStack) getResult() []int {
 	if len(this.result) > this.countReturn {
 		return this.result[:this.countReturn]
 	}
@@ -54,7 +54,7 @@ func initStack(list []int, x, countReturn int) *myStack {
 	sort.Sort(this)
 
 	this.lastId = countReturn - 1
-	this.maxDif = abs_dif(x, this.result[this.lastId])
+	this.maxDif = abcDiff(x, this.result[this.lastId])
 
 	return this
 }
@@ -62,7 +62,7 @@ func initStack(list []int, x, countReturn int) *myStack {
 // push It adds element to result list (if it's necessary) and sorts result list
 func (this *myStack) push(val int) {
 
-	dif := abs_dif(this.x, val)
+	dif := abcDiff(this.x, val)
 	if dif >= this.maxDif {
 		return
 	}
@@ -73,11 +73,11 @@ func (this *myStack) push(val int) {
 	// move to truth position
 	// res must be sorted
 	for i := this.lastId; i > 0; i-- {
-		if dif >= abs_dif(this.x, this.result[i-1]) {
+		if dif >= abcDiff(this.x, this.result[i-1]) {
 			break
 		}
 		this.result[i-1], this.result[i] = this.result[i], this.result[i-1]
 	}
 
-	this.maxDif = abs_dif(this.x, this.result[this.lastId])
+	this.maxDif = abcDiff(this.x, this.result[this.lastId])
 }

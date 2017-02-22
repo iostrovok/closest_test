@@ -23,7 +23,7 @@ func Find(list []int, x int, count int) []int {
 }
 
 // likes Math.Abs(x - y)
-func abs_dif(x, y int) int {
+func abcDiff(x, y int) int {
 
 	dif := x - y
 
